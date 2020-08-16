@@ -1,7 +1,7 @@
 from typing import Dict
 from typing import Optional
 
-from Domain.Domain.User import User
+from Domain.Domain.User.User import User
 
 
 

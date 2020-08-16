@@ -1,8 +1,8 @@
 import discord
 
 from Bot.User.Command.IUserCommand import IUserCommand
-from UseCase.User.KP.IAddKPUseCase import IAddKPUseCase
-from UseCase.User.KP.AddKPInputData import AddKPInputData
+from UseCase.User.KP.AddKP.IAddKPUseCase import IAddKPUseCase
+from UseCase.User.KP.AddKP.AddKPInputData import AddKPInputData
 
 
 

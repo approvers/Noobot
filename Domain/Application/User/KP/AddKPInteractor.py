@@ -1,7 +1,7 @@
-from Domain.Domain.User import User
-from Domain.Domain.UserList import UserList
-from UseCase.User.KP.IAddKPUseCase import IAddKPUseCase
-from UseCase.User.KP.AddKPInputData import AddKPInputData
+from Domain.Domain.User.User import User
+from Domain.Domain.User.UserList import UserList
+from UseCase.User.KP.AddKP.IAddKPUseCase import IAddKPUseCase
+from UseCase.User.KP.AddKP.AddKPInputData import AddKPInputData
 
 
 

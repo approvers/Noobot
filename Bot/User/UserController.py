@@ -2,7 +2,7 @@ import discord
 from typing import Dict
 
 from Domain.Domain.UserList import UserList
-from UseCase.User.KP.IAddKPUseCase import IAddKPUseCase
+from UseCase.User.KP.AddKP.IAddKPUseCase import IAddKPUseCase
 from Bot.User.Command.IUserCommand import IUserCommand
 from Bot.User.Command.AddKPCommand import AddKPCommand
 
