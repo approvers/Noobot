@@ -1,5 +1,9 @@
+from DiscordBot.Client import Client
+
 from DiscordBot.MessageReceiver import MessageReceiver
 from DiscordBot.User.UserController import UserController
+
+from DiscordBot.ConsoleApp.ConsoleMessage import ConsoleMessage
 
 from DiscordBot.InMemoryUserList import InMemoryUserList
 from DiscordBot.MessageSender import MessageSender
@@ -13,7 +17,7 @@ from DiscordBot.User.Command.KP.Get.GetKPMessagePresenter import GetKPMessagePre
 
 class Startup:
     @staticmethod
-    def console_receiver() -> MessageReceiver:
+    def console_run():
         user_repo: InMemoryUserList = InMemoryUserList()
         sender: MessageSender = MessageSender()
         
@@ -26,13 +30,21 @@ class Startup:
             )
         )
         
-        return MessageReceiver(
+        receiver: MessageReceiver = MessageReceiver(
             sender,
             user_controller
         )
+
+        user_id: int = 0
+
+        while True:
+            content:str  = input()
+            message = ConsoleMessage(content, user_id)
+            receiver.input(message)
         
+
     @staticmethod
-    def message_receiver() -> MessageReceiver:
+    def client_run():
         user_repo: InMemoryUserList = InMemoryUserList()
         sender: MessageSender = MessageSender()
         
@@ -44,7 +56,11 @@ class Startup:
             )
         )
         
-        return MessageReceiver(
-            sender,
-            user_controller
+        client = Client(
+            MessageReceiver(
+                sender,
+                user_controller
+            )
         )
+
+        client.run()
