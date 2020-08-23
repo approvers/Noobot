@@ -1,6 +1,6 @@
 from abc import ABCMeta, abstractmethod
 
-from UseCase.User.KP.GetKP.GetKPInputData import GetKPInputData
+from UseCase.User.KP.Get.GetKPInputData import GetKPInputData
 
 
 
