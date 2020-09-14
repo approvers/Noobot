@@ -2,7 +2,9 @@ import discord
 import os
 from discord.ext import tasks
 
-from DiscordBot.MessageReceiver import MessageReceiver
+from DiscordBot.MessageReceiver import MessageReceiver, PingPong
+from Console.View.PingPong.PingPongConsolePresenter import PingPongConsolePresenter
+from Domain.Application.PingPong.PingPongInteractor import PingPongInteractor
 
 
 
@@ -10,9 +12,11 @@ class Client(discord.Client):
     __TOKEN = os.environ["TOKEN"]
 
 
-    def __init__(self, receiver: MessageReceiver):
+    def __init__(self):
         super().__init__()
-        self._receiver = receiver
+        self._receiver = MessageReceiver(
+            PingPong(PingPongInteractor(PingPongConsolePresenter()))
+        )
 
     def run(self):
         super().run(Client.__TOKEN)
@@ -21,4 +25,4 @@ class Client(discord.Client):
         pass
 
     async def on_message(self, message: discord.Message):
-        await self._receiver.receive(message)
+        self._receiver.receive(message)
