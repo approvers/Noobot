@@ -1,3 +1,6 @@
-from DiscordBot.Startup import Startup
+from DiscordBot.Client import Client
+from Console.ConsoleApp import console_run
 
-Startup.client_run()
+
+if __name__ == "__main__":
+    console_run()
