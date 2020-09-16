@@ -2,8 +2,10 @@ import discord
 import os
 from discord.ext import tasks
 
-from DiscordBot.MessageReceiver import MessageReceiver, PingPong
-from Console.View.PingPong.PingPongConsolePresenter import PingPongConsolePresenter
+from DiscordBot.MessageView.MessageSender import MessageSender
+from DiscordBot.MessageReceiver import MessageReceiver
+from DiscordBot.Adapter.PingPong.PingPong import PingPong
+from DiscordBot.Adapter.PingPong.PingPongPresenter import PingPongPresenter 
 from Domain.Application.PingPong.PingPongInteractor import PingPongInteractor
 
 
@@ -14,8 +16,10 @@ class Client(discord.Client):
 
     def __init__(self):
         super().__init__()
+        sender = MessageSender()
         self._receiver = MessageReceiver(
-            PingPong(PingPongInteractor(PingPongConsolePresenter()))
+            sender,
+            PingPong(PingPongInteractor(PingPongPresenter(sender)))
         )
 
     def run(self):
@@ -25,4 +29,4 @@ class Client(discord.Client):
         pass
 
     async def on_message(self, message: discord.Message):
-        self._receiver.receive(message)
+        await self._receiver.receive(message)
