@@ -1,1 +1,1 @@
-ProcfileDiscordbot: python main.py -O
+ProcfileDiscordbot: python -O main.py
