@@ -4,5 +4,5 @@ class PingPongOutputData:
     def __init__(self, content: str):
         self._content: str = content
     
-    def getContent(self) -> str:
+    def get_content(self) -> str:
         return self._content
