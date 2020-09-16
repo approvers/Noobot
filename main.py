@@ -3,4 +3,7 @@ from Console.ConsoleApp import console_run
 
 
 if __name__ == "__main__":
-    Client().run()
+    if __debug__:
+        console_run()
+    else:
+        Client().run()
