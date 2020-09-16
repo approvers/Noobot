@@ -2,7 +2,7 @@ from UseCase.PingPong.IPingPongUseCase import IPingPongUseCase, PingPongInputDat
 
 
 
-class ConsoleController:
+class ConsolePingPong:
     __slots__ = ["_ping_pong_interctor"]
 
     def __init__(

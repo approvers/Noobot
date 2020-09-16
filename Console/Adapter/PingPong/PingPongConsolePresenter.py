@@ -1,5 +1,5 @@
 from UseCase.PingPong.IPingPongPresenter import IPingPongPresenter, PingPongOutputData
-from Console.View.ConsoleView import ConsoleView, ConsoleViewModel
+from Console.Adapter.ConsoleView import ConsoleView, ConsoleViewModel
 
 
 class PingPongConsolePresenter(IPingPongPresenter):

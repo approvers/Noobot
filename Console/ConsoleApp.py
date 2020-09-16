@@ -1,12 +1,13 @@
-from Console.ConsoleController import ConsoleController
+from Console.Adapter.ConsoleController import ConsoleController
 from Domain.Application.PingPong.PingPongInteractor import PingPongInteractor
-from Console.View.PingPong.PingPongConsolePresenter import PingPongConsolePresenter
+from Console.Adapter.PingPong.ConsolePingPong import ConsolePingPong
+from Console.Adapter.PingPong.PingPongConsolePresenter import PingPongConsolePresenter
 
 
 
 def console_run():
     controller = ConsoleController(
-        PingPongInteractor(PingPongConsolePresenter())
+        ConsolePingPong(PingPongInteractor(PingPongConsolePresenter()))
     )
 
     while(True):

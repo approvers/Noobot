@@ -12,7 +12,7 @@ class PingPongInteractor(IPingPongUseCase):
         self._presenter: IPingPongPresenter = presenter
 
     def handle(self, input_data: PingPongInputData):
-        if input_data.getContent() != "ping":
+        if input_data.get_content() != "ping":
             return
 
         output_data = PingPongOutputData("pong")
